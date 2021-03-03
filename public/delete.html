@@ -1,0 +1,52 @@
+<html>
+<head>
+    <script src="angular/angular.min.js"> </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<script> var myModule = angular.module("myApp",[])  </script>
+<body ng-app='myApp' class='bg3'>  
+    <form ng-controller='appController' ng-submit='send()'> 
+        <div class='sixth'>
+            <label for='id'>ID</label>
+                <input type='text' id='id' class='form-control' ng-model='data.id' placeholder='ID should be a number' required><br>
+            <button type="submit" class="btn btn-primary" ng-click='Submit' style='background-color:white'>Submit</button>
+            <a href="index.html" class="btn btn-primary"  style='background-color:white'>Back</a>
+        </div>
+        <div><pre><strong><h2 style='color:black'> {{response.data}} </h2></strong></pre></div>
+    </form>
+    <script>
+	 myModule.controller ("appController",
+        function appController($scope, $http) {
+            /*$http directive is used to communicate to the server */
+            $scope.data = {}
+            $scope.response = {}
+			
+            $scope.send = function () {
+                /*executed when submit is clicked*/          
+				//console.log($scope.data.name);
+                var posting = $http({
+			/*posting to /process_get  */
+                    //method: 'GET',
+                    //url: '/process_get',
+                    //params: $scope.data,
+			/*posting to /process_post*/
+                    method: 'POST',
+                    url: '/delete',
+                    data: $scope.data,
+                    
+                }).then (function (response) {
+                    /*executed when server responds back*/
+                    console.log(response);
+                    $scope.response.data = response.data;
+                },function (error){
+					console.log(error);
+			});
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="style1.css">
+    </head>
+    <body class='bg5'>
+        <h1 class='head jumbotron' style="font-size:10em">Food Menu</h1>
+        <div class='eight'>
+            <% if(comp.length==0) {%>
+                <b><strong><h1> No Items Found</h1></strong></b><!-- style='color:darkslateblue' font-size='30px'-->
+            <% }
+            else {%>
+
+            <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th style="color: white;">ID</th>
+                        <th style="color: white;">Name</th>
+                        <th style="color: white;">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <% comp.forEach(function(row){ %>
+                      <tr>
+                        <td style="color: white;"><%= row.id %></td>
+                        <td style="color: white;"><%= row.name %></td>
+                        <td style="color: white;"><%= row.price %></td>
+                      </tr>
+                      <% })}%>
+                    </tbody>
+                  </table>
+
+
+
+            <a href='index.html' class='btn btn-primary' style='background-color:white'>Back</a>
+        </div>
+    </body>
+</html>

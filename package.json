@@ -1,0 +1,22 @@
+{
+  "name": "food-menu",
+  "version": "0.0.1",
+  "author": "xxx",
+  "engines": {
+    "node": "13.5.0"
+  },
+  "dependencies": {
+    "assert": "^2.0.0",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongodb": "^2.2.33",
+    "vcap_services": "*"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "license": "ISC",
+  "description": ""
+}
